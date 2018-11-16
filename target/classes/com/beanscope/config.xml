@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- in beanscope byName this bean id should be of same name as the object of service which is to be wired -->
+	<!-- <bean id="master" class="com.beanscope.HTMLReportGenerator"></bean> -->
+	
+	
+	<bean id="pdfReportGenerator" class="com.beanscope.PDFReportGenerator"></bean>
+	
+	<!-- when the scope is prototype different bean object is created everytime on calling getBean method -->
+	<bean id="reportService" class="com.beanscope.ReportService" autowire="byType" scope="prototype">
+	
+	<!-- for constructor based injection -->
+	<!-- <constructor-arg ref="htmlReportGenerator"></constructor-arg>
+	<constructor-arg value="250"></constructor-arg> -->
+	
+	<!-- for setter based injection -->
+	<!-- <property name="master" ref="pdfReportGenerator"></property> -->
+	
+	</bean>
+	
+
+</beans>

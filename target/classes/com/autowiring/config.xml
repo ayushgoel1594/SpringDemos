@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- in autowiring byName this bean id should be of same name as the object of service which is to be wired -->
+	<!-- <bean id="master" class="com.autowiring.HTMLReportGenerator"></bean> -->
+	
+	
+	<bean id="pdfReportGenerator" class="com.autowiring.PDFReportGenerator"></bean>
+	
+	<!-- In AutoWiring byType there can be only one of the same type, if there are multiple error will be thrown -->
+	<bean id="reportService" class="com.autowiring.ReportService" autowire="byType">
+	
+	<!-- for constructor based injection -->
+	<!-- <constructor-arg ref="htmlReportGenerator"></constructor-arg>
+	<constructor-arg value="250"></constructor-arg> -->
+	
+	<!-- for setter based injection -->
+	<!-- <property name="master" ref="pdfReportGenerator"></property> -->
+	
+	</bean>
+	
+
+</beans>

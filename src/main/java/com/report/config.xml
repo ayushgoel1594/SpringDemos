@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="htmlReportGenerator" class="com.report.HTMLReportGenerator"></bean>
+	<bean id="pdfReportGenerator" class="com.report.PDFReportGenerator"></bean>
+	
+	<bean id="reportService" class="com.report.ReportService">
+	
+	<!-- for constructor based injection -->
+	<!-- <constructor-arg ref="htmlReportGenerator"></constructor-arg>
+	<constructor-arg value="250"></constructor-arg> -->
+	
+	<!-- for setter based injection -->
+	<property name="master" ref="pdfReportGenerator"></property>
+	
+	<!-- we should have a setter for each property we want to set using property tag
+	<property name="recordsPerPage"></property> -->
+	</bean>
+	
+
+</beans>

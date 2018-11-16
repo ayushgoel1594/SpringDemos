@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- since there are 2 beans we cannot use autowiring bytype -->
+	<bean id="springQuestion" class="com.infy.SpringQuestion"></bean>
+	<bean id="strutsQuestion" class="com.infy.StrutsQuestion"></bean>
+	
+	<!-- if we are using autowiring bytype we cannot have 2 beans as it will lead to an error as there will be 2 beans of the same type -->
+	<!-- <bean id="questionService" class="com.infy.QuestionService" autowire="byType"> -->
+	
+	<bean id="questionService" class="com.infy.QuestionService" autowire="byName">
+	<property name="questionInterface" ref="springQuestion"></property>
+	
+	<!-- property tag is needed for setter injection -->
+		<!-- <property name="master" ref="strutsQuestion"></property> -->
+		
+		<!-- <constructor-arg name="master" ref="strutsQuestion"></constructor-arg> -->
+		
+	</bean>
+</beans>

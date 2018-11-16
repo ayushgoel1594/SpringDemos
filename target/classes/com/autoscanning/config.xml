@@ -1,0 +1,21 @@
+<beans 	xmlns="http://www.springframework.org/schema/beans"   
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"     
+     	xmlns:context="http://www.springframework.org/schema/context" 
+       	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+     	http://www.springframework.org/schema/beans/spring-beans.xsd      
+    	http://www.springframework.org/schema/context        
+    	http://www.springframework.org/schema/context/spring-context.xsd">   
+        <!--  Enable auto scanning feature in Spring -->
+ 	<context:component-scan base-package="com.autoscanning" />
+ 	
+<!--  	we do not define any bean in case of autoscanning, we use @Component annotation in classes -->
+<!-- 	<bean id="htmlReportGenerator" class="com.autoscanning.HTMLReportGenerator"></bean>
+	<bean id="pdfReportGenerator" class="com.autoscanning.PDFReportGenerator"></bean>
+	
+	<bean id="reportService" class="com.autoscanning.ReportService" >
+	
+	
+	</bean> -->
+	
+
+</beans>
